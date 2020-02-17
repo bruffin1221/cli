@@ -1,2 +1,4 @@
 #!/usr/bin/env ruby
+
+
 Cli::Hiking.new.call
