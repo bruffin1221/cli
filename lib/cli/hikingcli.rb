@@ -1,5 +1,7 @@
-class Cli::HikingCli
+class Cli::Hikingcli
 
   def call
-    "Select Your Hike:"
+    puts "Select Your Hike:"
   end
+
+end

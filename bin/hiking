@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
+require './lib/cli'
 
-
-Cli::Hiking.new.call
+Cli::Hikingcli.new.call
