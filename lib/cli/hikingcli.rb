@@ -17,7 +17,9 @@ end
 
 def select_hike
   input=nil
-  puts "Enter a hike:"
+  puts "Enter hikes for information on all hikes:"
+  puts "Enter a number for information on a specific hike"
+  puts "Enter Done when finished"
   until input=="Done"
     input=gets.strip
     case input
@@ -27,8 +29,12 @@ def select_hike
       puts "More information Hike 2"
     when "3"
       puts "More information on Hike 3"
+    when "hikes"
+      puts hikes
     when "Done"
       puts done
+    else
+      puts "invalid entry"
     end
   end
 end
