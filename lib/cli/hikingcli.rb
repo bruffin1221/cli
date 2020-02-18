@@ -1,40 +1,42 @@
 class Cli::Hikingcli
 
   def call
+    puts "Look at the wonderful hikes in the Columbia River Gorge"
     hikes
     select_hike
-    done
+    finished
   end
+end
 
 def hikes
-  puts "Look at the wonderful hikes in the Columbia River Gorge"
-  Cli::Hiking.all.each.with_index(1) do |trails, index|
+  @hikes=Cli::Hiking.all
+  @hikes.each.with_index(1) do |trails, index|
     puts "#{index}. #{trails.name}-#{trails.difficulty}-#{trails.distance}-#{trails.elevation}"
   end
 end
 
 def select_hike
   input=nil
-  puts "Enter hikes for information on all hikes:"
-  puts "Enter a number for information on a specific hike"
-  puts "Enter Done when finished"
-  until input=="Done"
-    input=gets.strip.to_i
+   until input=="done"
 
-    if input<0
-      puts Cli::Hiking.all[input-1]
-    elsif "hikes"
-      puts hikes
-    elsif "Done"
-      puts done
-    else
-      puts "invalid entry"
-    end
+  puts "Enter 'hikes' for information on all hikes"
+  puts "Enter number for information on a specific hike"
+  puts "Enter 'done' when finished"
+
+  input=gets.strip.downcase
+  
+  if input=="hikes"
+    puts hikes
+  elsif input.to_i>0
+    puts @hikes.all[input.to_i-1]
+  elsif "done"
+  else
+    puts "invalid entry"
   end
 end
 
-def done
-  "Enjoy Your Hike"
+def finished
+  puts "Enjoy Your Hike"
 end
 
 end
