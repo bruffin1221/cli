@@ -1,10 +1,10 @@
 class Cli::Hiking
 
-attr_accessor :name, :diffiulty, :distance, :elevation
+attr_accessor :name, :difficulty, :distance, :elevation
 
 @@all=[]
 
-def intialize (name, difficulty, distance, elevation)
+def initialize (name, difficulty, distance, elevation)
   @name=name
   @difficulty=difficulty
   @distance=distance
@@ -17,3 +17,6 @@ def self.all
 end
 
 end
+
+Angels_Rest=Cli::Hiking.new("Angel's Rest", "Moderate", "4.3 miles", "4700 ft")
+Angels_Rest
