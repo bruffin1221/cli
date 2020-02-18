@@ -8,12 +8,9 @@ class Cli::Hikingcli
 
 def hikes
   puts "Look at the wonderful hikes in the Columbia River Gorge"
-  puts <<-DOC
-  1. Angel's Rest-Moderate-5 miles-1500ft
-  2. Angel's Rest to Devil's Loop-Expert-10.7 miles-2700ft
-  3. Augsperger Mt.-Expert-16 miles-4400ft
-  DOC
-  Cli::Hiking.new
+  Cli::Hiking.all.each.with_index(1) do |trails, index|
+    puts "#{index}. #{trails.name}-#{trails.difficulty}-#{trails.distance}-#{trails.elevation}"
+  end
 end
 
 def select_hike
@@ -22,17 +19,13 @@ def select_hike
   puts "Enter a number for information on a specific hike"
   puts "Enter Done when finished"
   until input=="Done"
-    input=gets.strip
-    case input
-    when "1"
-      puts "More information on Hike 1"
-    when "2"
-      puts "More information Hike 2"
-    when "3"
-      puts "More information on Hike 3"
-    when "hikes"
+    input=gets.strip.to_i
+
+    if input<0
+      puts Cli::Hiking.all[input-1]
+    elsif "hikes"
       puts hikes
-    when "Done"
+    elsif "Done"
       puts done
     else
       puts "invalid entry"

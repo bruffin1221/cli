@@ -18,5 +18,6 @@ end
 
 end
 
-Angels_Rest=Cli::Hiking.new("Angel's Rest", "Moderate", "4.3 miles", "4700 ft")
-Angels_Rest
+#Angels_Rest=Cli::Hiking.new
+#Angels_Rest=Cli::Hiking.new("Angel's Rest", "Moderate", "4.3 miles", "4700 ft")
+#Angels_Rest
