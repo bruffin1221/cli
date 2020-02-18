@@ -11,8 +11,9 @@ def hikes
   puts <<-DOC
   1. Angel's Rest-Moderate-5 miles-1500ft
   2. Angel's Rest to Devil's Loop-Expert-10.7 miles-2700ft
-  3. Augsperger Mt.-Expert-Expert-16 miles-4400ft
+  3. Augsperger Mt.-Expert-16 miles-4400ft
   DOC
+  Cli::Hiking.new
 end
 
 def select_hike
