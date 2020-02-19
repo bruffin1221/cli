@@ -1,13 +1,16 @@
 class Cli::Scraper
 
   def self.find_hikes
-    gorge=Nokogiri::(open("https://gorgefriends.org/hike-the-gorge/find-a-hike.html"))
-    gorge.css("div.3u.4u(narrow).6u$(mobile).12u(mobilep).hike-result-item")
+    gorge=Nokogiri::HTML(open("https://gorgefriends.org/hike-the-gorge/find-a-hike.html"))
+    puts gorge.css(".hike-list-wrap").text
+    puts gorge.css(".container")
+
 binding.pry
 
     Cli::Hiking.new(name, difficulty, network, descriptione)
 
    end
+
  end
 
  <div class="3u 4u(narrow) 6u$(mobile) 12u(mobilep) hike-result-item" data-title="benson plateau loop" data-elevation-actual="4080" data-elevation="4" data-difficulty="4" data-location="3" data-length="5" data-length-actual="16.2" data-features="1" data-restrooms="1" data-trailhead-fees="1" data-family-friendly="0" data-gorgeous-challenge="0" data-guided-hike="0">
