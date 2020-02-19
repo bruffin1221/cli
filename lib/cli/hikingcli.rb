@@ -24,12 +24,11 @@ def select_hike
   puts "Enter 'done' when finished"
 
   input=gets.strip.downcase
-  
   if input=="hikes"
     puts hikes
   elsif input.to_i>0
-    puts @hikes.all[input.to_i-1]
-  elsif "done"
+    puts @hikes[input.to_i-1]
+  elsif input=="done"
   else
     puts "invalid entry"
   end
