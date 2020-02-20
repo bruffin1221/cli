@@ -11,7 +11,7 @@ class Cli::Scraper
  end
 
 
-gorge.css("tr").each do |trail-info|
-  trail-info.css("td")[1].text
+gorge.css("tr").collect do |trail|
+  trail.css("td")[1]
 end
  #gorge.css("table").name
