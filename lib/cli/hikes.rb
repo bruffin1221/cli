@@ -4,6 +4,10 @@ attr_accessor :name, :difficulty, :distance, :elevation, :description
 
 @@all=[]
 
+def self.hiking_scraper
+Cli::Scraper.find_hikes
+end
+
 def initialize(name, difficulty, distance, elevation, description)
   @name=name
   @difficulty=difficulty
