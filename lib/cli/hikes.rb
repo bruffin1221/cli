@@ -4,11 +4,12 @@ attr_accessor :name, :difficulty, :distance, :elevation, :description
 
 @@all=[]
 
-def initialize(name, difficulty, distance, elevation)
+def initialize(name, difficulty, distance, elevation, description)
   @name=name
   @difficulty=difficulty
   @distance=distance
   @elevation=elevation
+  @desciption=description
   @@all<<self
 end
 

@@ -8,15 +8,13 @@ class Cli::Scraper
       difficulty=trail.css("td[3]").text.strip
       elevation=trail.css("td[5]").text.strip
       description=trail.css("td[6]").text.strip
-      
+      Cli::Hiking.new(name, distance, difficulty, elevation, description)
       binding.pry
-      end
     end
   end
 
-
 end
-
+#  Cli::Hiking.new(name, distance, difficulty, elevation, description)
   #gorge.xpath("//tr").each do |trail|
 
 #puts gorge.css("a").text
