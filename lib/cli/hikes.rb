@@ -1,6 +1,6 @@
 class Cli::Hiking
 
-attr_accessor :name, :difficulty, :distance, :elevation
+attr_accessor :name, :difficulty, :distance, :elevation, :description
 
 @@all=[]
 
