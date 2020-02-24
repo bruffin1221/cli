@@ -3,12 +3,12 @@ class Cli::Scraper
   def self.find_hikes
     gorge=Nokogiri::HTML(open("https://www.oregonhikers.org/field_guide/Columbia_River_Gorge_Hikes"))
     gorge.css("tr").map do |trail|
-      trail.css("td[2]").text.strip.delete!(" ")
-      #difficulty=trail.css("td[3]").text.strip.delete!" ".compact
-      #distance=trail.css("td[4]").text.strip.delete!" ".compact
-      #elevation=trail.css("td[5]").text.strip.delete!" ".compac
-      #description=trail.css("td[6]").text.strip.delete!" ".compact
-      #Cli::Hiking.new(name, difficulty, distance, elevation, description)
+      name=trail.css("td[2]").text.strip
+      difficulty=trail.css("td[3]").text.strip
+      distance=trail.css("td[4]").text.strip
+      elevation=trail.css("td[5]").text.strip
+      description=trail.css("td[6]").text.strip 
+      Cli::Hiking.new(name, difficulty, distance, elevation, description)
       binding.pry
     end
   end
