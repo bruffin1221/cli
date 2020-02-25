@@ -8,20 +8,25 @@ def self.hiking_scraper
 Cli::Scraper.find_hikes
 end
 
-def self.new(name, difficulty, distance, elevation, description)
-  self.hiking_scraper
-  self.name=name
-  self.difficulty=difficulty
-  self.distance=distance
-  self.elevation=elevation
-  self.description=description
+def initialize(name, difficulty, distance, elevation, description)
+  @name=name
+  @difficulty=difficulty
+  @distance=distance
+  @elevation=elevation
+  @description=description
   @@all<<self
-  binding.pry
 end
 
 def self.all
   @@all
+  binding.pry
 end
+
+#def self.adventure
+#  @@all.map do |hike_adventure|
+#    puts trailhead
+  #end
+#end
 
 end
 
