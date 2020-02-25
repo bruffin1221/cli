@@ -4,11 +4,12 @@ class Cli::Scraper
     gorge=Nokogiri::HTML(open("https://www.oregonhikers.org/field_guide/Columbia_River_Gorge_Hikes"))
     gorge.css("tr").map do |trail|
       name=trail.css("td[2]").text.strip
-      difficulty=trail.css("td[3]").text.strip
-      distance=trail.css("td[4]").text.strip
+      distance=trail.css("td[3]").text.strip
+      difficulty=trail.css("td[4]").text.strip
       elevation=trail.css("td[5]").text.strip
       description=trail.css("td[6]").text.strip
-      Cli::Hiking.new(name, difficulty, distance, elevation, description)
+      Cli::Hiking.new(name, distance, difficulty, elevation, description)
+      binding.pry
     end
   end
 

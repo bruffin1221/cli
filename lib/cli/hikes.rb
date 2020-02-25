@@ -9,13 +9,12 @@ Cli::Scraper.find_hikes
 end
 
 def self.new(name, difficulty, distance, elevation, description)
-  self.name=name
-  self.difficulty=difficulty if difficulty !=" "
-  self.distance=distance  if distance !=" "
-  self.elevation=elevation if elevation !=" "
-  self.desciption=description if description !=" "
+  @name=name
+  self.difficulty=difficulty
+  self.distance=distance
+  self.elevation=elevation
+  self.desciption=description
   @@all<<self
-  binding.pry
 end
 
 def self.all
