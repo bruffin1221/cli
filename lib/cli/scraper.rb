@@ -7,9 +7,8 @@ class Cli::Scraper
       difficulty=trail.css("td[3]").text.strip
       distance=trail.css("td[4]").text.strip
       elevation=trail.css("td[5]").text.strip
-      description=trail.css("td[6]").text.strip 
+      description=trail.css("td[6]").text.strip
       Cli::Hiking.new(name, difficulty, distance, elevation, description)
-      binding.pry
     end
   end
 
