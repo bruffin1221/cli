@@ -9,7 +9,7 @@ class Cli::Hikingcli
 end
 
 def hikes
-  @hikes=Cli::Hiking.all
+  @hikes=Cli::Scraper.find_hikes
   @hikes.each.with_index(1) do |trails, index|
     puts "#{index}. #{trails.name}-#{trails.difficulty}-#{trails.distance}-#{trails.elevation}"
   end

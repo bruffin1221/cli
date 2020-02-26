@@ -4,28 +4,18 @@ attr_accessor :name, :difficulty, :distance, :elevation, :description
 
 @@all=[]
 
-def self.list_hikes
-  @@all<<Cli::Scraper.find_hikes
- end
-
- def self.all
-   @@all
- end
-
-def self.list_by_name
-  self.all.each{|river| river.name==river}
-  binding.pry
-end
-
-
 def initialize(name, difficulty, distance, elevation, description)
   @name=name
   @difficulty=difficulty
   @distance=distance
   @elevation=elevation
   @description=description
+  @@all<<self
 end
 
+ def self.all
+   @@all
+ end
 
 #@@all.find{|adventure| adventure.name==self.list_hikes}
 #def self.adventure
