@@ -2,7 +2,15 @@ class Cli::Hiking
 
 attr_accessor :name, :difficulty, :distance, :elevation, :description
 
-@@all=[]
+@@list=[]
+
+def self.hiking_list
+  Cli::Scraper.find_hikes
+  @@list<< Cli::Scraper.find_hikes
+  @@list
+  binding.pry
+end
+
 
 def initialize(name, difficulty, distance, elevation, description)
   @name=name
@@ -10,12 +18,9 @@ def initialize(name, difficulty, distance, elevation, description)
   @distance=distance
   @elevation=elevation
   @description=description
-  @@all<<self
 end
 
- def self.all
-   @@all
- end
+
 
 #@@all.find{|adventure| adventure.name==self.list_hikes}
 #def self.adventure
