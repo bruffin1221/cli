@@ -40,6 +40,19 @@ def select_hike
   end
 end
 
+def self.find_by_difficulty(difficulty)
+  adventure=Cli::Hiking.list.select do |fun|
+   fun.difficulty==difficulty
+   adventure.each.with_index(1) do |outdoor, index|
+    puts "#{index}. #{outdoor.difficulty}-#{outdoor.name}-#{outdoor.distance}-#{outdoor.description}"
+ end
+ end
+
+
+
+
+
+
 def finished
   puts "Enjoy Your Hike"
 end
