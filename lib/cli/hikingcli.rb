@@ -20,16 +20,20 @@ def select_hike
   input=nil
    until input=="done"
 
-  puts "Enter 'hikes' for information on all hikes"
-  puts "Enter number for information on a specific hike"
-  puts "Enter 'done' when finished"
+  puts "Enter 'Hikes' for information on all hikes"
+  puts "Enter 'Easy', 'Moderate', or 'Difficult' for information on a specific hike"
+  puts "Enter 'Done' when finished"
 
-  input=gets.strip.downcase
-  if input=="hikes"
-    puts hikes
-  elsif input.to_i>0
-    puts @hikes[input.to_i-1]
-  elsif input=="done"
+  case input=gets.strip
+  when input=="Hikes"
+    puts Cli::Hiking.list
+  when input=="Easy"
+    puts Cli::Hiking.find_by_name
+  when input=="Moderate"
+    puts Cli::Hiking.find_by_name
+  when input=="Difficult"
+    puts Cli::Hiking.find_by_name
+  when input=="done"
   else
     puts "invalid entry"
   end
