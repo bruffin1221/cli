@@ -4,12 +4,6 @@ attr_accessor :name, :difficulty, :distance, :elevation, :description
 
 @@list=[]
 
-def self.list
-  Cli::Scraper.find_hikes
-  @@list<< Cli::Scraper.find_hikes
-  @@list.flatten
-end
-
 def initialize(name, difficulty, distance, elevation, description)
   @name=name
   @difficulty=difficulty
@@ -18,17 +12,26 @@ def initialize(name, difficulty, distance, elevation, description)
   @description=description
 end
 
+def self.list
+  @@list=[]
+  Cli::Scraper.find_hikes
+  @@list<< Cli::Scraper.find_hikes
+  @@list.flatten
+end
+
+
 def self.find_by_name(name)
+#@@list=[]
 #Cli::Scraper.find_hikes
 #@@list<< Cli::Scraper.find_hikes
-@@list.flatten.select{|hike_info| hike_info.name==name}.uniq!
+self.list.select{|hike_info| hike_info.name==name}
 end
 
 def self.find_by_difficulty(difficulty)
-@@list=[]
-Cli::Scraper.find_hikes
-@@list<< Cli::Scraper.find_hikes
-@@list.flatten.select{|hike_info| hike_info.difficulty==difficulty}
+#@@list=[]
+#Cli::Scraper.find_hikes
+#@@list<< Cli::Scraper.find_hikes
+self.list.select{|hike_info| hike_info.difficulty==difficulty}
  end
 
 end
