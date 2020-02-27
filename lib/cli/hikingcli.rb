@@ -6,12 +6,15 @@ def call
 
     puts "Look at the wonderful hikes in the Columbia River Gorge"
     puts "Enter 'hikes' for information on all hikes"
+    puts "Enter 'difficulty level' for an easy hike or hard hike"
     puts "Enter 'done' when finished"
 
     input=gets.strip.downcase
 
     if input=="hikes"
       hikes
+    elsif input=="difficulty level"
+      find_hikes
     elsif input=="done"
       finished
     else
@@ -26,6 +29,17 @@ def hikes
     puts "#{index}. #{trails.name}-#{trails.description}"
   end
 end
+
+def find_hikes
+  puts "Please choose an 'Easy','Moderate', or 'Difficult' hike"
+  input=get.strip.capitalize
+
+  fun_adventure=find_by_difficulty(input)
+  fun_adventure.each.with_index(1) do |fun, index|
+    puts "#{index}. #{fun.difficulty}-#{fun.name}-#{fun.elevation}"
+    puts "#{fun.description}"
+  end
+end 
 
 def finished
   puts "Enjoy Your Hike"

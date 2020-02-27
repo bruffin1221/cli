@@ -19,20 +19,9 @@ def self.list
   @@list.flatten
 end
 
-
-def self.find_by_name(name)
-#@@list=[]
-#Cli::Scraper.find_hikes
-#@@list<< Cli::Scraper.find_hikes
-self.list.select{|hike_info| hike_info.name==name}
-end
-
 def self.find_by_difficulty(difficulty)
-#@@list=[]
-#Cli::Scraper.find_hikes
-#@@list<< Cli::Scraper.find_hikes
-self.list.select{|hike_info| hike_info.difficulty==difficulty}
- end
+  self.list.select{|hike_info| hike_info.difficulty==difficulty}
+end
 
 end
 #@@all.find{|adventure| adventure.name==self.list_hikes}
@@ -42,7 +31,9 @@ end
   #end
 #end
 
-
+#@@list=[]
+#Cli::Scraper.find_hikes
+#@@list<< Cli::Scraper.find_hikes
 
 #Angels_Rest=Cli::Hiking.new
 #Angels_Rest=Cli::Hiking.new("Angel's Rest", "Moderate", "4.3 miles", "4700 ft")
