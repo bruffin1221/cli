@@ -9,7 +9,7 @@ class Cli::Hikingcli
 end
 
 def hikes
-  @hikes= Cli::Hiking.list
+  @hikes=Cli::Hiking.list
   #Cli::Scraper.find_hikes
   @hikes.each.with_index(1) do |trails, index|
     puts "#{index}. #{trails.name}"
@@ -24,16 +24,17 @@ def select_hike
   puts "Enter 'Easy', 'Moderate', or 'Difficult' for information on a specific hike"
   puts "Enter 'Done' when finished"
 
-  case input=gets.strip
-  when input=="Hikes"
-    puts Cli::Hiking.list
-  when input=="Easy"
-    puts Cli::Hiking.find_by_name
-  when input=="Moderate"
-    puts Cli::Hiking.find_by_name
-  when input=="Difficult"
-    puts Cli::Hiking.find_by_name
-  when input=="done"
+  input=gets.strip.downcase
+
+  if input=="hikes"
+    puts  Cli::Hiking.list
+  elsif input=="easy"
+    puts Cli::Hiking.find_by_difficulty("Easy")
+  elsif input=="Moderate"
+    puts Cli::Hiking.find_by_difficulty("Moderate")
+  elsif input=="Difficult"
+    puts Cli::Hiking.find_by_difficulty("Difficult")
+  elsif input=="Done"
   else
     puts "invalid entry"
   end
