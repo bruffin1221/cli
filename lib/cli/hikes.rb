@@ -19,6 +19,10 @@ def self.list
   @@list.flatten
 end
 
+def self.find_by_name(name)
+  self.list.select{|gorge_info| gorge_info.name==name}
+end
+
 def self.find_by_difficulty(difficulty)
   self.list.select{|hike_info| hike_info.difficulty==difficulty}
 end

@@ -6,16 +6,20 @@ def call
 
     puts "Look at the wonderful hikes in the Columbia River Gorge"
     puts "Enter 'hikes' for information on all hikes"
+    puts "Enter 'hike name' for information on a specific hike"
     puts "Enter 'difficulty level' for an easy hike or hard hike"
     puts "Enter 'done' when finished"
 
     input=gets.strip.downcase
 
-    if input=="hikes"
+    case input
+    when "hikes"
       hikes
-    elsif input=="difficulty level"
-      find_hikes
-    elsif input=="done"
+    when "hike name"
+      hike_name
+    when "difficulty level"
+      difficulty_level
+    when "done"
       finished
     else
       puts "invalid entry"
@@ -30,16 +34,25 @@ def hikes
   end
 end
 
-def find_hikes
-  puts "Please choose an 'Easy','Moderate', or 'Difficult' hike"
-  input=get.strip.capitalize
+def hike_name
+  puts "Enter name of hike:"
+  input=gets.strip
 
-  fun_adventure=find_by_difficulty(input)
-  fun_adventure.each.with_index(1) do |fun, index|
-    puts "#{index}. #{fun.difficulty}-#{fun.name}-#{fun.elevation}"
-    puts "#{fun.description}"
+  gorge_hike=Cli::Hiking.find_by_name(input)
+  gorge_hike.each do |adv|
+    puts "#{adv.name}-#{adv.difficulty}-#{adv.distance}mi-#{adv.elevation}ft"
   end
-end 
+end
+
+def difficulty_level
+  puts "Please choose an 'Easy','Moderate', or 'Difficult' hike"
+  input=gets.strip.capitalize
+
+  fun_adventure=Cli::Hiking.find_by_difficulty(input)
+  fun_adventure.each.with_index(1) do |fun, index|
+    puts "#{index}. #{fun.difficulty}-#{fun.name}-#{fun.distance}mi-#{fun.elevation}ft"
+  end
+end
 
 def finished
   puts "Enjoy Your Hike"
