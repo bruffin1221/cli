@@ -1,6 +1,7 @@
 # Cli
-My name is Bruce. Ready for some fun!!
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/cli`. To experiment with that code, run `bin/console` for an interactive prompt.
+Oregon contains some of the most beautiful hikes and wilderness areas in the country. Rivers teaming with fish, snowcapped mountains, and majestic waterfalls lie just a short drive (bike ride) away. Of course, the crown jewel of Oregon's outdoor adventures is the Columbia River Gorge. It sits outside of Portland and well-over 200 hikes with view of Columbia River and waterfalls. 
+
+My Cli project lists and sorts all the hikes in the beautiful Columbia River Gorge. You need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/cli`. To experiment with that code, run `bin/hiking` for an interactive prompt.
 
 TODO: Delete this and the text above, and describe your gem
 
@@ -22,7 +23,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Run hiking after installing the gem
 
 ## Development
 
