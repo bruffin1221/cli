@@ -3,7 +3,6 @@ Oregon contains some of the most beautiful hikes and wilderness areas in the cou
 
 My Cli project lists and sorts all the hikes in the beautiful Columbia River Gorge. You need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/cli`. To experiment with that code, run `bin/hiking` for an interactive prompt.
 
-TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
